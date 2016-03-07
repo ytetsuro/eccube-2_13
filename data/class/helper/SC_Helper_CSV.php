@@ -248,8 +248,8 @@ class SC_Helper_CSV
         // ヘッダー構築
         $this->output_header = false;
         if (is_array($arrHeader)) {
-            fputcsv($this->fpOutput, $arrHeader);
             mb_convert_variables('cp932', 'UTF-8', $arrHeader);
+            fputcsv($this->fpOutput, $arrHeader);
         } elseif (is_null($arrHeader)) {
             // ループバック内でヘッダーを出力する
             $this->output_header = true;
